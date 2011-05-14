@@ -7,10 +7,18 @@ if (!!amplify.store && !!jQuery) {
 		currPos = document.body.scrollLeft;
 		amplify.store("pecan_hpos", currPos);
 	}
-	jQuery(window).load(function() {
+	// this is sort of complicated...
+	// do vertical scrolling (down the page) first
+	jQuery(function() {
 		var vPos = amplify.store("pecan_vpos");
+		var realV = !vPos ? 0 : vPos;
+		window.scrollTo(0, realV);
+	});
+	// and do horizontal scrolling (across the page) after all images load
+	jQuery(window).load(function() {
 		var hPos = amplify.store("pecan_hpos");
-		window.scrollTo(!hPos ? 0 : hPos, !vPos ? 0 : vPos);
+		var realH = !hPos ? 0 : hPos;
+		window.scrollBy(realH, 0);
 	});
 } else {
 	document.write("Pecan.js can't find amplify.store, or it can't find jQuery.  Make sure both of those exist when Pecan.js loads.");
