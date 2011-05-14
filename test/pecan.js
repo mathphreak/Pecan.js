@@ -7,7 +7,7 @@ if (!!amplify.store && !!jQuery) {
 		currPos = document.body.scrollLeft;
 		amplify.store("pecan_hpos", currPos);
 	}
-	jQuery(window).load(function() {
+	jQuery(function() {
 		var vPos = amplify.store("pecan_vpos");
 		var hPos = amplify.store("pecan_hpos");
 		window.scrollTo(!hPos ? 0 : hPos, !vPos ? 0 : vPos);
