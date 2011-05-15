@@ -5,6 +5,22 @@
 <script type="text/javascript" src="jquery-1.5.2.js"></script>
 <script type="text/javascript" src="amplify.min.js"></script>
 <script type="text/javascript" src="../pecan.js"></script>
+<script type="text/javascript">
+Pecan.useDefaultEvents();
+// or:
+/*
+Pecan.init();
+// when you're ready for vertical
+Pecan.loadVert();
+// and for horizontal
+Pecan.loadHoriz();
+*/
+
+// or, if you know that the above three steps can all happen at once:
+/*
+Pecan.load();
+*/
+</script>
 </head>
 <body>
 <p>This page tests Pecan.js, a lightweight JavaScript persistent scroll location manager.  Huge images (like the one below) don't break it.  The <a href="../pecan.js">Pecan.js source file</a> weighs in at (gasp) 25 lines...including comments.</p>
